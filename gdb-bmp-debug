@@ -1,0 +1,24 @@
+# Connect to the Black Magic Probe and start a debug session.
+target extended-remote /dev/ttyACM0
+
+# Reduce the speed of the SWD comms.
+monitor freq 1000000
+
+# Connect to the target
+monitor swdp_scan
+attach 1
+
+# Let us access all the special function registers
+set mem inaccessible-by-default off
+
+# Flash the application.
+load
+
+# Configure the view
+tui enable
+layout src
+
+# Run to the start of the main application
+break main_app
+run
+del 1

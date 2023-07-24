@@ -1,0 +1,2 @@
+# Connect the the openocd debug server
+target extended-remote :3333

@@ -1,0 +1,8 @@
+# Start openocd and connect to it directly via pipe
+
+target extended-remote | openocd -f interface/stlink-dap.cfg -f target/stm32f3x.cfg \
+-c "gdb_port pipe; log_output openocd.log"
+
+load
+monitor reset
+quit

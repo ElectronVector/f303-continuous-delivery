@@ -1,0 +1,22 @@
+name: Build target binary
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install toolchain
+        run: | 
+          curl -O https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi.tar.xz \
+          && tar -xf arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi.tar.xz -C /opt \
+          && echo "/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Build application
+        run: |
+          cmake . -B build/Release --toolchain cmake/arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Release \
+          && cmake --build build/Release
+      - name: Save target binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: f303
+          path: build/Release/f303
