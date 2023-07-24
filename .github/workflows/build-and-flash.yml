@@ -1,4 +1,4 @@
-name: Build target binary
+name: Build and flash target binary
 on: [push]
 jobs:
   build:
