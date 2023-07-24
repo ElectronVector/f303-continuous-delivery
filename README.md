@@ -1,9 +1,11 @@
-# F303
+# f303-continuous-delivery
 
-This is a test example using more modern tools for STM32 development. This includes things like CMake, GDB, and C++.
+This is a test example demonstrating how to use Github Actions to build and flash firmware (on real hardware devices).
+
+For more details on how to flash devices with a Raspberry Pi, see https://www.electronvector.com.
 
 The skeleton of the project was reused from: https://github.com/cortexm/baremetal.
-This provided all of the C++ startup code.
+This provided all the startup code.
 
 ## Code structure
 
