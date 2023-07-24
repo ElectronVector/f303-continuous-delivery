@@ -5,8 +5,6 @@ static volatile unsigned &RCC_AHB1 = *reinterpret_cast<unsigned *>(0x40021014);
 static volatile unsigned &GPIOE_MODER = *reinterpret_cast<unsigned *>(0x48001000);
 static volatile unsigned &GPIOE_BSRR = *reinterpret_cast<unsigned *>(0x48001018);
 
-// #include <cmath>
-
 #define bit(x) (1 << x)
 
 void delay (void) {
