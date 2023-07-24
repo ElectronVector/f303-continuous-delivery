@@ -10,7 +10,7 @@ static volatile unsigned &GPIOE_BSRR = *reinterpret_cast<unsigned *>(0x48001018)
 #define bit(x) (1 << x)
 
 void delay (void) {
-    for (volatile uint32_t i = 0; i < 600000; i++);
+    for (volatile uint32_t i = 0; i < 100000; i++);
 }
 
 // application
