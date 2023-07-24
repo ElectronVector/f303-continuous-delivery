@@ -1,8 +1,0 @@
-name: Test on the self hosted runner
-run-name: ${{ github.actor }} is running on the self hosted runner
-on: [push]
-jobs:
-  self-hosted-test:
-    runs-on: self-hosted
-    steps:
-      - run: uname -a

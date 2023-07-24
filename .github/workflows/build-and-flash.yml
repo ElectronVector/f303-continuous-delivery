@@ -20,3 +20,15 @@ jobs:
         with:
           name: f303
           path: build/Release/f303
+  flash:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Download target binary
+        uses: actions/download-artifact@v3
+        with:
+          name: f303
+      - name: Flash target
+        run: gdb-multiarch -x gdb-st-link-flash-and-exit f303
